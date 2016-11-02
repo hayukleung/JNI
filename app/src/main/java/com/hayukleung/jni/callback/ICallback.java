@@ -1,5 +1,7 @@
 package com.hayukleung.jni.callback;
 
+import android.util.Log;
+
 /**
  * JNI
  * com.hayukleung.jni.callback
@@ -14,5 +16,34 @@ public class ICallback {
     System.loadLibrary("com_hayukleung_jni_callback_ICallback");
   }
 
-  public native long callback(int callback);
+  public native void callback();
+
+  /**
+   * 被C调用的JAVA方法
+   */
+  public void onCallback() {
+    Log.e("onCallback", "content callback");
+  }
+
+  /**
+   * 被C调用的JAVA方法
+   *
+   * @param intFromC
+   */
+  public void onCallback(int intFromC) {
+    Log.e("onCallback", String.valueOf(intFromC));
+  }
+
+  /**
+   * 被C调用的JAVA方法
+   *
+   * @param stringFromC
+   */
+  public void onCallback(String stringFromC) {
+    Log.e("onCallback", stringFromC);
+  }
+
+
+
+
 }

@@ -1,4 +1,4 @@
-package com.hayukleung.jni;
+package com.hayukleung.jni.fibonacci;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,18 +7,18 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import com.hayukleung.jni.fibonacci.IFibonacci;
+import com.hayukleung.jni.R;
 
 /**
  * JNI
  * com.hayukleung.jni
- * MainActivity.java
+ * FibonacciActivity.java
  *
  * by hayukleung
  * at 2016-11-01 10:47
  */
 
-public class MainActivity extends AppCompatActivity {
+public class FibonacciActivity extends AppCompatActivity {
 
   private TextView mResultRecursive1;
   private TextView mTimeRecursive1;
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     @Override public void run() {
       Looper.prepare();
       long start = System.currentTimeMillis();
-      long result = fibonacci.getFibonacci(50L, type);
+      long result = fibonacci.getFibonacci(40L, type);
       long finish = System.currentTimeMillis();
       Message message = handler.obtainMessage();
       message.obj = result;

@@ -24,6 +24,10 @@ add_library( com_hayukleung_jni_JNIInterface
              SHARED
              src/main/cpp/com_hayukleung_jni_JNIInterface.c )
 
+add_library( com_hayukleung_jni_callback_ICallback
+             SHARED
+             src/main/cpp/com_hayukleung_jni_callback_ICallback.cpp )
+
 add_library( com_hayukleung_jni_fibonacci_IFibonacci
              SHARED
              src/main/cpp/com_hayukleung_jni_fibonacci_IFibonacci.c
@@ -48,6 +52,13 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
                        native-lib
+
+                       # Links the target library to the log library
+                       # included in the NDK.
+                       ${log-lib} )
+
+target_link_libraries( # Specifies the target library.
+                       com_hayukleung_jni_callback_ICallback
 
                        # Links the target library to the log library
                        # included in the NDK.
